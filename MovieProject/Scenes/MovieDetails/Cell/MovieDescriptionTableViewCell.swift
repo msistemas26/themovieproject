@@ -23,5 +23,6 @@ class MovieDescriptionTableViewCell: UITableViewCell {
     
     private func showData(viewModel: MovieDetails.GetMovie.ViewModel.DisplayedMovie) {
         overview.text = viewModel.overview
+        overview.sizeToFit()
     }
 }

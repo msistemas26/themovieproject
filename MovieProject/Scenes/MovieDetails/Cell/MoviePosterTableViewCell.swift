@@ -16,6 +16,11 @@ class MoviePosterTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        poster.image = nil
+    }
 
     func setup(withViewModel viewModel: MovieDetails.GetMovie.ViewModel.DisplayedMovie) {
         showData(viewModel: viewModel)

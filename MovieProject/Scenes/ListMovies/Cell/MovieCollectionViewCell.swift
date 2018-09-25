@@ -16,6 +16,10 @@ class MovieCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
     }
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        poster.image = nil
+    }
     
     func setup(withViewModel viewModel: ListMovies.FetchMovies.ViewModel.DisplayedMovie) {
         showData(viewModel: viewModel)

@@ -13,13 +13,14 @@ protocol MovieDetailsDisplayLogic: class
     func displayMovieDetails(viewModel: MovieDetails.GetMovie.ViewModel)
 }
 
-class MovieDetailsViewController: UITableViewController
+class MovieDetailsViewController: UIViewController
 {
     
     var interactor: MovieDetailsBusinessLogic?
     var router: (NSObjectProtocol & MovieDetailsRoutingLogic & MovieDetailsDataPassing)?
     var displayedMovie: MovieDetails.GetMovie.ViewModel.DisplayedMovie?
     
+    @IBOutlet weak var tableView: UITableView!
     
     // MARK: Object lifecycle
     
@@ -74,7 +75,7 @@ class MovieDetailsViewController: UITableViewController
     }
     
     func setBackGroundImage(viewModel: MovieDetails.GetMovie.ViewModel.DisplayedMovie) {
-        self.tableView.backgroundView?.setBackgroundImage(fromUrl: viewModel.poster_path)
+        self.view.setBackgroundImage(fromUrl: viewModel.poster_path)
     }
     
 }
@@ -96,32 +97,46 @@ extension MovieDetailsViewController
 {
     
     enum MovieSection: Int  {
-        case header
         case poster
         case basicInfo
         case play
         case overview
     }
     
-    override func numberOfSections(in tableView: UITableView) -> Int
+    func numberOfSections(in tableView: UITableView) -> Int
     {
         return 1
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         return MovieSection.overview.rawValue + 1
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        guard let displayedMovie = self.displayedMovie, let op = MovieSection(rawValue: indexPath.row) else{
+            return 0.0
+        }
+        
+        switch op {
+        case .poster:
+            return 300.0
+        case .basicInfo:
+            return 70.0
+        case .play:
+            return 50.0
+        case .overview:
+            return 250.0
+        }
+    }
 
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         guard let displayedMovie = self.displayedMovie, let op = MovieSection(rawValue: indexPath.row) else{
             return UITableViewCell()
         }
         
         switch op {
-        case .header:
-            return movieHeaderCell(displayedMovie: displayedMovie)
         case .poster:
             return moviePosterCell(displayedMovie: displayedMovie)
         case .basicInfo:
@@ -136,22 +151,14 @@ extension MovieDetailsViewController
 
 // MARK: - UItableView Cell implementation
 
-extension MovieDetailsViewController {
+extension MovieDetailsViewController: UITableViewDelegate, UITableViewDataSource {
     
     struct Constant
     {
-        static let movieHeaderCellReuseIdentifier = "movieHeaderCell"
         static let moviePosterCellReuseIdentifier = "moviePosterCell"
         static let movieBasicInfoCellReuseIdentifier = "movieBasicInfoCell"
         static let playMovieCellReuseIdentifier = "playMovieCell"
         static let movieDescriptionCellReuseIdentifier = "movieDescriptionCell"
-    }
-    
-    func movieHeaderCell(displayedMovie: MovieDetails.GetMovie.ViewModel.DisplayedMovie) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: Constant.movieHeaderCellReuseIdentifier) as? MovieDetailsTableViewHeader
-            else { return UITableViewCell() }
-        cell.setup(withViewModel: displayedMovie)
-        return cell
     }
     
     func moviePosterCell(displayedMovie: MovieDetails.GetMovie.ViewModel.DisplayedMovie) -> UITableViewCell {

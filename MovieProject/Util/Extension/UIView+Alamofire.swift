@@ -19,6 +19,15 @@ extension UIView {
             if let image = response.result.value {
                 let imageFilter = AspectScaledToFillSizeFilter(size: self.frame.size)
                 self.backgroundColor = UIColor(patternImage:imageFilter.filter(image))
+                
+                if !UIAccessibilityIsReduceTransparencyEnabled() {
+                    let blurEffect = UIBlurEffect(style: .dark)
+                    let blurEffectView = UIVisualEffectView(effect: blurEffect)
+                    blurEffectView.frame = self.frame
+                    blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+                    self.addSubview(blurEffectView)
+                    self.sendSubview(toBack: blurEffectView)
+                }
             }
         }
     }
