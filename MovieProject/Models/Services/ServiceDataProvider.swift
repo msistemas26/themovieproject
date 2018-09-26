@@ -29,7 +29,7 @@ class ServiceDataProvider
     
     init()
     {
-        self.movieDataProvide = TheMovieApi()
+        self.movieDataProvide = CheckInternet.Connection() ? TheMovieApi() : RealmProvider()
     }
     
     func fetchMovies(category: MovieCategory, completionHandler completion: @escaping ([Movie]) -> Void)
@@ -46,7 +46,5 @@ class ServiceDataProvider
         categories.append(Category(id: 3, name: "Upcoming"))
         completion(categories)
     }
-    
-    
 
 }

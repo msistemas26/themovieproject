@@ -10,7 +10,7 @@ import Foundation
 
 struct Movie: Codable
 {
-    let id: Int64
+    let id: Int
     let title :String
     let overview: String
     let poster_path: String

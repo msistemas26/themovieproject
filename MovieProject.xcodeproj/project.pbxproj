@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FEB00D58215BDA890005E527 /* RealmProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB00D57215BDA890005E527 /* RealmProvider.swift */; };
+		FEB00D5B215BDE9F0005E527 /* RealmMovie.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB00D5A215BDE9F0005E527 /* RealmMovie.swift */; };
+		FEB00D6A215BED1B0005E527 /* CheckInternet.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB00D69215BED1B0005E527 /* CheckInternet.swift */; };
 		FED602962158274200FD24D5 /* MovieDetailsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED602952158274200FD24D5 /* MovieDetailsRouter.swift */; };
 		FED60298215827D600FD24D5 /* MovieDetailsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED60297215827D600FD24D5 /* MovieDetailsInteractor.swift */; };
 		FED6029A215828B500FD24D5 /* MovieDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED60299215828B500FD24D5 /* MovieDetailsModel.swift */; };
@@ -70,6 +73,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FEB00D57215BDA890005E527 /* RealmProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmProvider.swift; sourceTree = "<group>"; };
+		FEB00D5A215BDE9F0005E527 /* RealmMovie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmMovie.swift; sourceTree = "<group>"; };
+		FEB00D69215BED1B0005E527 /* CheckInternet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInternet.swift; sourceTree = "<group>"; };
 		FED602952158274200FD24D5 /* MovieDetailsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsRouter.swift; sourceTree = "<group>"; };
 		FED60297215827D600FD24D5 /* MovieDetailsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsInteractor.swift; sourceTree = "<group>"; };
 		FED60299215828B500FD24D5 /* MovieDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsModel.swift; sourceTree = "<group>"; };
@@ -150,6 +156,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FEB00D59215BDE890005E527 /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				FEB00D5A215BDE9F0005E527 /* RealmMovie.swift */,
+			);
+			path = Realm;
+			sourceTree = "<group>";
+		};
 		FED6029D21582D1200FD24D5 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -217,7 +231,6 @@
 			children = (
 				FEE328752158184D00CB0D38 /* Util */,
 				FEE328492157F09A00CB0D38 /* Models */,
-				FEE3284A2157F0AD00CB0D38 /* Services */,
 				FEE3284B2157F0B700CB0D38 /* Scenes */,
 				FEE328102157EB4C00CB0D38 /* AppDelegate.swift */,
 				FEE328122157EB4C00CB0D38 /* ViewController.swift */,
@@ -265,6 +278,7 @@
 			children = (
 				FEE328662157F90500CB0D38 /* Movie.swift */,
 				FED602B62159564000FD24D5 /* Category.swift */,
+				FEE3284A2157F0AD00CB0D38 /* Services */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -272,8 +286,11 @@
 		FEE3284A2157F0AD00CB0D38 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				FEB00D59215BDE890005E527 /* Realm */,
 				FEE328712158031400CB0D38 /* ServiceDataProvider.swift */,
 				FEE3287321580E8400CB0D38 /* TheMovieApi.swift */,
+				FEB00D57215BDA890005E527 /* RealmProvider.swift */,
+				FEB00D69215BED1B0005E527 /* CheckInternet.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -525,6 +542,7 @@
 				FEE3285E2157F70100CB0D38 /* MovieDetailsViewController.swift in Sources */,
 				FED602B12159529A00FD24D5 /* CategoryFilterPresenter.swift in Sources */,
 				FEE328132157EB4C00CB0D38 /* ViewController.swift in Sources */,
+				FEB00D5B215BDE9F0005E527 /* RealmMovie.swift in Sources */,
 				FED602962158274200FD24D5 /* MovieDetailsRouter.swift in Sources */,
 				FED602BA215958FA00FD24D5 /* CategoryFilterTableViewCell.swift in Sources */,
 				FED602B3215952B300FD24D5 /* CategoryFilterModel.swift in Sources */,
@@ -533,6 +551,7 @@
 				FEE328112157EB4C00CB0D38 /* AppDelegate.swift in Sources */,
 				FEE328692157F9A800CB0D38 /* ListMoviesModel.swift in Sources */,
 				FED602AF2159528A00FD24D5 /* CategoryFilterInteractor.swift in Sources */,
+				FEB00D6A215BED1B0005E527 /* CheckInternet.swift in Sources */,
 				FED602AD2159527300FD24D5 /* CategoryFilterViewController.swift in Sources */,
 				FEE328602157F70D00CB0D38 /* PlayMovieViewController.swift in Sources */,
 				FEE328672157F90500CB0D38 /* Movie.swift in Sources */,
@@ -541,6 +560,7 @@
 				FEE3286D2157FBB100CB0D38 /* ListMoviesRouter.swift in Sources */,
 				FEE328652157F8B900CB0D38 /* ListMoviesInteractor.swift in Sources */,
 				FED602A921582FEC00FD24D5 /* MovieDetailsTableViewHeader.swift in Sources */,
+				FEB00D58215BDA890005E527 /* RealmProvider.swift in Sources */,
 				FED6029C2158291900FD24D5 /* MovieDetailsPresenter.swift in Sources */,
 				FED602A521582D8700FD24D5 /* PlayMovieTableViewCell.swift in Sources */,
 				FEE3286F2157FD1200CB0D38 /* ListMoviesWorker.swift in Sources */,

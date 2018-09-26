@@ -8,7 +8,7 @@
 
 import Foundation
 import Alamofire
-
+import RealmSwift
 
 enum ServiceResult<U>
 {
@@ -60,6 +60,7 @@ final class TheMovieApi: MovieDataProviderProtocol
                     
                 var movies: MovieList
                 movies = try! decoder.decode(MovieList.self, from: result)
+                self.saveMovieIntoRealm(movies: movies.results, category: category)
                 completion(movies.results)
         }
     }
@@ -68,5 +69,24 @@ final class TheMovieApi: MovieDataProviderProtocol
         // Demo
     }
     
-    
+    func saveMovieIntoRealm(movies :[Movie], category: MovieCategory) {
+        
+        let realm = try! Realm()
+        print(Realm.Configuration.defaultConfiguration.fileURL!)
+        try! realm.write {
+            for movie in movies {
+                let realmMovie = RealmMovie()
+                realmMovie.id = Int(movie.id)
+                realmMovie.title = movie.title
+                realmMovie.overview = movie.overview
+                realmMovie.poster_path = movie.poster_path
+                realmMovie.release_date = movie.release_date
+                realmMovie.popularity = movie.popularity
+                realmMovie.vote_average = 0.0
+                realmMovie.video = movie.video
+                realmMovie.category = category.rawValue
+                realm.add(realmMovie, update: true)
+            }
+        }
+    }
 }

@@ -11,6 +11,6 @@ import Foundation
 
 struct Category: Codable
 {
-    let id: Int64
+    let id: Int
     let name :String
 }
