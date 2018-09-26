@@ -100,7 +100,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="124" height="170"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jI4-SV-FQH">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultMovie" translatesAutoresizingMaskIntoConstraints="NO" id="jI4-SV-FQH">
                                             <rect key="frame" x="0.0" y="0.0" width="124" height="170"/>
                                         </imageView>
                                     </subviews>
@@ -153,6 +153,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wXH-49-NAW">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                            </imageView>
                             <tableView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fkL-20-cEl">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -316,8 +319,12 @@
                         <constraints>
                             <constraint firstItem="0gr-Sd-zYM" firstAttribute="trailing" secondItem="fkL-20-cEl" secondAttribute="trailing" id="8g4-NY-sZp"/>
                             <constraint firstItem="0gr-Sd-zYM" firstAttribute="bottom" secondItem="fkL-20-cEl" secondAttribute="bottom" id="8uv-SN-0d1"/>
+                            <constraint firstItem="0gr-Sd-zYM" firstAttribute="bottom" secondItem="wXH-49-NAW" secondAttribute="bottom" id="AnS-8t-XSK"/>
                             <constraint firstItem="0gr-Sd-zYM" firstAttribute="top" secondItem="fkL-20-cEl" secondAttribute="top" constant="20" id="JJG-Xp-y4v"/>
+                            <constraint firstItem="wXH-49-NAW" firstAttribute="leading" secondItem="0gr-Sd-zYM" secondAttribute="leading" id="LFL-TH-Nr6"/>
                             <constraint firstItem="fkL-20-cEl" firstAttribute="leading" secondItem="0gr-Sd-zYM" secondAttribute="leading" id="Ue9-QX-O4f"/>
+                            <constraint firstItem="wXH-49-NAW" firstAttribute="top" secondItem="0gr-Sd-zYM" secondAttribute="top" id="dwO-ow-YIx"/>
+                            <constraint firstItem="0gr-Sd-zYM" firstAttribute="trailing" secondItem="wXH-49-NAW" secondAttribute="trailing" id="gPR-R4-RZY"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0gr-Sd-zYM"/>
                     </view>
@@ -348,4 +355,7 @@
             <point key="canvasLocation" x="2157.5999999999999" y="-9.4452773613193415"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="defaultMovie" width="500" height="302"/>
+    </resources>
 </document>

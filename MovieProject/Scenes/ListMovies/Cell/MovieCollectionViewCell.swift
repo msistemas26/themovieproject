@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AlamofireImage
 
 class MovieCollectionViewCell: UICollectionViewCell {
     
@@ -26,7 +27,17 @@ class MovieCollectionViewCell: UICollectionViewCell {
     }
     
     private func showData(viewModel: ListMovies.FetchMovies.ViewModel.DisplayedMovie) {
-        let size = CGSize(width: self.frame.size.width, height: self.frame.size.height)
-        poster.loadImage(fromUrl: viewModel.poster_path, size: size)
+        let placeholderImage = UIImage(named: "defaultMovie")!
+        let posterUrl = ImagePath.poster_path_original.rawValue + viewModel.poster_path
+        
+        guard let url = URL(string: posterUrl) else {
+            poster.image = placeholderImage
+            return
+        }
+        
+        let imageFilter = AspectScaledToFillSizeFilter(size: poster.frame.size)
+        
+        poster.af_setImage(withURL: url, placeholderImage: placeholderImage, filter: imageFilter, progress: nil, imageTransition: UIImageView.ImageTransition.crossDissolve(0.5), runImageTransitionIfCached: false, completion: { (image) in
+        })
     }
 }

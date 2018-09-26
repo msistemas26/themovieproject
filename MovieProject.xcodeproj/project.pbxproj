@@ -51,7 +51,6 @@
 		FEE3286F2157FD1200CB0D38 /* ListMoviesWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE3286E2157FD1200CB0D38 /* ListMoviesWorker.swift */; };
 		FEE328722158031400CB0D38 /* ServiceDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE328712158031400CB0D38 /* ServiceDataProvider.swift */; };
 		FEE3287421580E8400CB0D38 /* TheMovieApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE3287321580E8400CB0D38 /* TheMovieApi.swift */; };
-		FEE328782158186A00CB0D38 /* UIImageView+Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE328772158186A00CB0D38 /* UIImageView+Alamofire.swift */; };
 		FEE3287D215823F300CB0D38 /* MovieCollectionViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE3287C215823F300CB0D38 /* MovieCollectionViewHeader.swift */; };
 /* End PBXBuildFile section */
 
@@ -123,7 +122,6 @@
 		FEE3286E2157FD1200CB0D38 /* ListMoviesWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMoviesWorker.swift; sourceTree = "<group>"; };
 		FEE328712158031400CB0D38 /* ServiceDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceDataProvider.swift; sourceTree = "<group>"; };
 		FEE3287321580E8400CB0D38 /* TheMovieApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheMovieApi.swift; sourceTree = "<group>"; };
-		FEE328772158186A00CB0D38 /* UIImageView+Alamofire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Alamofire.swift"; sourceTree = "<group>"; };
 		FEE3287C215823F300CB0D38 /* MovieCollectionViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCollectionViewHeader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -376,7 +374,6 @@
 		FEE328762158185300CB0D38 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				FEE328772158186A00CB0D38 /* UIImageView+Alamofire.swift */,
 				FED602BE21597CC700FD24D5 /* UIView+Alamofire.swift */,
 			);
 			path = Extension;
@@ -556,7 +553,6 @@
 				FEE328602157F70D00CB0D38 /* PlayMovieViewController.swift in Sources */,
 				FEE328672157F90500CB0D38 /* Movie.swift in Sources */,
 				FEE3287D215823F300CB0D38 /* MovieCollectionViewHeader.swift in Sources */,
-				FEE328782158186A00CB0D38 /* UIImageView+Alamofire.swift in Sources */,
 				FEE3286D2157FBB100CB0D38 /* ListMoviesRouter.swift in Sources */,
 				FEE328652157F8B900CB0D38 /* ListMoviesInteractor.swift in Sources */,
 				FED602A921582FEC00FD24D5 /* MovieDetailsTableViewHeader.swift in Sources */,
