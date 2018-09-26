@@ -11,6 +11,7 @@ import Foundation
 protocol ListMoviesBusinessLogic
 {
     func fetchMovies(category: MovieCategory, request: ListMovies.FetchMovies.Request)
+    func fetchMovies(text: String, request: ListMovies.FetchMovies.Request)
 }
 
 protocol ListMoviesDataStore
@@ -32,6 +33,15 @@ final class ListMoviesInteractor: ListMoviesBusinessLogic, ListMoviesDataStore
     func fetchMovies(category: MovieCategory, request: ListMovies.FetchMovies.Request)
     {
         moviesDataProvider.fetchMovies(category: category) { (movies) in
+            self.movies = movies
+            let response = ListMovies.FetchMovies.Response(movies: movies)
+            self.presenter?.presentFetchedMovies(response: response)
+        }
+    }
+    
+    func fetchMovies(text: String, request: ListMovies.FetchMovies.Request)
+    {
+        moviesDataProvider.fetchMovies(text: text) { (movies) in
             self.movies = movies
             let response = ListMovies.FetchMovies.Response(movies: movies)
             self.presenter?.presentFetchedMovies(response: response)

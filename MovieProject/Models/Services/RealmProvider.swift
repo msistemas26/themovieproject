@@ -21,10 +21,9 @@ final class RealmProvider: MovieDataProviderProtocol
     {
         
         let realm = try! Realm()
-        
         var movies: [Movie] = []
         
-        let realmMovies = realm.objects(RealmMovie.self).filter("category == '\(category.rawValue)'")
+        let realmMovies = realm.objects(RealmMovie.self).filter("category == '%@'", category.rawValue)
         for realmMovie in realmMovies {
             movies.append(Movie(id: realmMovie.id, title: realmMovie.title, overview: realmMovie.overview, poster_path: realmMovie.poster_path, release_date: realmMovie.release_date, popularity: realmMovie.popularity, vote_average: realmMovie.vote_average, video: realmMovie.video))
         }
@@ -32,8 +31,17 @@ final class RealmProvider: MovieDataProviderProtocol
         completion(movies)
     }
     
-    func fetchMovie(id: String, completionHandler: @escaping (Movie?, ServiceError?) -> Void) {
-        // Demo
+    func fetchMovies(text: String, completionHandler completion: @escaping ([Movie]) -> Void) {
+        
+        let realm = try! Realm()
+        var movies: [Movie] = []
+        
+        let realmMovies = realm.objects(RealmMovie.self).filter("title CONTAINS[c] %@", text)
+        for realmMovie in realmMovies {
+            movies.append(Movie(id: realmMovie.id, title: realmMovie.title, overview: realmMovie.overview, poster_path: realmMovie.poster_path, release_date: realmMovie.release_date, popularity: realmMovie.popularity, vote_average: realmMovie.vote_average, video: realmMovie.video))
+        }
+        
+        completion(movies)
     }
     
 }

@@ -11,7 +11,7 @@ import Foundation
 protocol MovieDataProviderProtocol
 {
     func fetchMovies(category: MovieCategory, completionHandler completion: @escaping ([Movie]) -> Void)
-    func fetchMovie(id: String, completionHandler: @escaping (Movie?, ServiceError?) -> Void)
+    func fetchMovies(text: String, completionHandler completion: @escaping ([Movie]) -> Void)
 }
 
 /// Enum that represents service errors
@@ -35,6 +35,13 @@ class ServiceDataProvider
     func fetchMovies(category: MovieCategory, completionHandler completion: @escaping ([Movie]) -> Void)
     {
         movieDataProvide.fetchMovies(category: category) { result in
+            completion(result)
+        }
+    }
+    
+    func fetchMovies(text: String, completionHandler completion: @escaping ([Movie]) -> Void)
+    {
+        movieDataProvide.fetchMovies(text: text) { result in
             completion(result)
         }
     }

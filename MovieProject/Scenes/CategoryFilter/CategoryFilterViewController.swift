@@ -84,7 +84,7 @@ extension CategoryFilterViewController: ListCategoriesDisplayLogic
     }
 }
 
-// MARK: - UUtableView Delegates implementation
+// MARK: - UItableView Delegates implementation
 
 extension CategoryFilterViewController: UITableViewDelegate, UITableViewDataSource
 {
@@ -126,4 +126,3 @@ extension CategoryFilterViewController: UIViewControllerTransitioningDelegate {
     }
     
 }
-

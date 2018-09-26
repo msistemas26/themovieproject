@@ -20,6 +20,8 @@ class ListMoviesViewController: UICollectionViewController
     var router: (NSObjectProtocol & ListMoviesRoutingLogic & ListMoviesDataPassing)?
     var displayedMovies: [ListMovies.FetchMovies.ViewModel.DisplayedMovie] = []
     
+    let searchController = UISearchController(searchResultsController: nil)
+    
     var category: Category?
     
     // MARK: Object lifecycle
@@ -53,11 +55,20 @@ class ListMoviesViewController: UICollectionViewController
         category = nil
     }
     
+    private func setUpSearchBar(){
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search Movies"
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
+    }
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        setUpSearchBar()
         fetchMovies()
     }
 
@@ -67,6 +78,12 @@ class ListMoviesViewController: UICollectionViewController
     {
         let request = ListMovies.FetchMovies.Request()
         interactor?.fetchMovies(category: .popular, request: request)
+    }
+    
+    func fetchMovies(text: String)
+    {
+        let request = ListMovies.FetchMovies.Request()
+        interactor?.fetchMovies(text: text, request: request)
     }
     
     // MARK: Routing
@@ -127,6 +144,29 @@ extension ListMoviesViewController
             return reusableview
         default:  fatalError("Unexpected element kind")
         }
+    }
+}
+
+
+
+// MARK: - Search Bar methods and UISearchResultsUpdating Delegate
+
+extension ListMoviesViewController: UISearchResultsUpdating {
+    
+    @IBAction func toggleSearchBar(){
+    }
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        if searchBarIsEmpty() {
+            fetchMovies()
+        } else {
+            fetchMovies(text: searchController.searchBar.text!)
+        }
+    }
+    
+    func searchBarIsEmpty() -> Bool {
+        // Returns true if the text is empty or nil
+        return searchController.searchBar.text?.isEmpty ?? true
     }
 }
 
