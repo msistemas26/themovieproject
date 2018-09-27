@@ -14,21 +14,26 @@ extension UIView {
     
     func setBackgroundImage(fromUrl url: String)
     {
-        let posterUrl = ImagePath.poster_path_original.rawValue + url
-        Alamofire.request(posterUrl).responseImage { response in
-            if let image = response.result.value {
-                let imageFilter = AspectScaledToFillSizeFilter(size: self.frame.size)
-                self.backgroundColor = UIColor(patternImage:imageFilter.filter(image))
-                
-                if !UIAccessibilityIsReduceTransparencyEnabled() {
-                    let blurEffect = UIBlurEffect(style: .dark)
-                    let blurEffectView = UIVisualEffectView(effect: blurEffect)
-                    blurEffectView.frame = self.frame
-                    blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-                    self.addSubview(blurEffectView)
-                    self.sendSubview(toBack: blurEffectView)
-                }
-            }
+        if !UIAccessibilityIsReduceTransparencyEnabled() {
+            let blurEffect = UIBlurEffect(style: .dark)
+            let blurEffectView = UIVisualEffectView(effect: blurEffect)
+            blurEffectView.frame = self.frame
+            blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            self.addSubview(blurEffectView)
+            self.sendSubview(toBack: blurEffectView)
         }
+        
+        let posterUrl = ImagePath.poster_path_original.rawValue + url
+        let imageFilter = AspectScaledToFillSizeFilter(size: self.frame.size)
+        
+        guard let url = URL(string: posterUrl) else {
+            return
+        }
+        
+        let imageView = UIImageView()
+        imageView.af_setImage(withURL: url, placeholderImage: nil, filter: imageFilter, progress: nil, imageTransition: .noTransition, runImageTransitionIfCached: false, completion: { (response) in
+            let imageFilter = AspectScaledToFillSizeFilter(size: self.frame.size)
+            self.backgroundColor = UIColor(patternImage:imageFilter.filter(response.result.value!))
+        })
     }
 }

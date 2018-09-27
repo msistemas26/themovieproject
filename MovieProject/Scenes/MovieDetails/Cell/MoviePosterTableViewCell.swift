@@ -39,7 +39,7 @@ class MoviePosterTableViewCell: UITableViewCell {
         
         let imageFilter = AspectScaledToFillSizeFilter(size: poster.frame.size)
         
-        poster.af_setImage(withURL: url, placeholderImage: placeholderImage, filter: imageFilter, progress: nil, imageTransition: UIImageView.ImageTransition.crossDissolve(0.5), runImageTransitionIfCached: false, completion: { (image) in
+        poster.af_setImage(withURL: url, placeholderImage: placeholderImage, filter: imageFilter, progress: nil, imageTransition: .noTransition, runImageTransitionIfCached: false, completion: { (image) in
         })
     }
 }

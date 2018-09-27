@@ -10,6 +10,7 @@
 		FEB00D58215BDA890005E527 /* RealmProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB00D57215BDA890005E527 /* RealmProvider.swift */; };
 		FEB00D5B215BDE9F0005E527 /* RealmMovie.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB00D5A215BDE9F0005E527 /* RealmMovie.swift */; };
 		FEB00D6A215BED1B0005E527 /* CheckInternet.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB00D69215BED1B0005E527 /* CheckInternet.swift */; };
+		FEB00D87215D29070005E527 /* AVPlayerViewController + LandscapeOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB00D86215D29070005E527 /* AVPlayerViewController + LandscapeOrientation.swift */; };
 		FED602962158274200FD24D5 /* MovieDetailsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED602952158274200FD24D5 /* MovieDetailsRouter.swift */; };
 		FED60298215827D600FD24D5 /* MovieDetailsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED60297215827D600FD24D5 /* MovieDetailsInteractor.swift */; };
 		FED6029A215828B500FD24D5 /* MovieDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED60299215828B500FD24D5 /* MovieDetailsModel.swift */; };
@@ -75,6 +76,7 @@
 		FEB00D57215BDA890005E527 /* RealmProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmProvider.swift; sourceTree = "<group>"; };
 		FEB00D5A215BDE9F0005E527 /* RealmMovie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmMovie.swift; sourceTree = "<group>"; };
 		FEB00D69215BED1B0005E527 /* CheckInternet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInternet.swift; sourceTree = "<group>"; };
+		FEB00D86215D29070005E527 /* AVPlayerViewController + LandscapeOrientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AVPlayerViewController + LandscapeOrientation.swift"; sourceTree = "<group>"; };
 		FED602952158274200FD24D5 /* MovieDetailsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsRouter.swift; sourceTree = "<group>"; };
 		FED60297215827D600FD24D5 /* MovieDetailsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsInteractor.swift; sourceTree = "<group>"; };
 		FED60299215828B500FD24D5 /* MovieDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsModel.swift; sourceTree = "<group>"; };
@@ -375,6 +377,7 @@
 			isa = PBXGroup;
 			children = (
 				FED602BE21597CC700FD24D5 /* UIView+Alamofire.swift */,
+				FEB00D86215D29070005E527 /* AVPlayerViewController + LandscapeOrientation.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -555,6 +558,7 @@
 				FEE3287D215823F300CB0D38 /* MovieCollectionViewHeader.swift in Sources */,
 				FEE3286D2157FBB100CB0D38 /* ListMoviesRouter.swift in Sources */,
 				FEE328652157F8B900CB0D38 /* ListMoviesInteractor.swift in Sources */,
+				FEB00D87215D29070005E527 /* AVPlayerViewController + LandscapeOrientation.swift in Sources */,
 				FED602A921582FEC00FD24D5 /* MovieDetailsTableViewHeader.swift in Sources */,
 				FEB00D58215BDA890005E527 /* RealmProvider.swift in Sources */,
 				FED6029C2158291900FD24D5 /* MovieDetailsPresenter.swift in Sources */,

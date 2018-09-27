@@ -25,8 +25,6 @@ class ListMoviesRouter: NSObject, ListMoviesRoutingLogic, ListMoviesDataPassing
     weak var viewController: ListMoviesViewController?
     var dataStore: ListMoviesDataStore?
     
-    // MARK: Routing
-    
     func routeToMovieDetails(segue: UIStoryboardSegue?)
     {
         if let segue = segue {
@@ -38,14 +36,7 @@ class ListMoviesRouter: NSObject, ListMoviesRoutingLogic, ListMoviesDataPassing
     
     func routeToCategories(segue: UIStoryboardSegue?)
     {
-        if let segue = segue {
-            let destinationVC = segue.destination as! CategoryFilterViewController
-            destinationVC.transitioningDelegate = destinationVC
-            destinationVC.modalPresentationStyle = .custom
-            
-            //var destinationDS = destinationVC.router!.dataStore!
-            //passDataToMovieDetails(source: dataStore!, destination: &destinationDS)
-        }
+        //USING SEGUE
     }
     
     // MARK: Passing data
@@ -55,7 +46,4 @@ class ListMoviesRouter: NSObject, ListMoviesRoutingLogic, ListMoviesDataPassing
         let selectedItem = viewController?.collectionView?.indexPathsForSelectedItems?.first?.item
         destination.movie = source.movies?[selectedItem!]
     }
-    
-    
-    
 }

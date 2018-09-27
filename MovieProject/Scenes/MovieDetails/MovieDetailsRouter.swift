@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import AVKit
+import AVFoundation
 
 protocol MovieDetailsRoutingLogic
 {
-    func routeToPlayMovie(segue: UIStoryboardSegue?)
+    func routeToPlayMovie(withUrl url: URL)
     func routeBack()
 }
 
@@ -31,9 +33,16 @@ class MovieDetailsRouter: NSObject, MovieDetailsRoutingLogic, MovieDetailsDataPa
         viewController?.dismiss(animated: true, completion: nil)
     }
     
-    func routeToPlayMovie(segue: UIStoryboardSegue?)
+    func routeToPlayMovie(withUrl url: URL)
     {
-        //Demo
+        let player = AVPlayer(url: url)
+        
+        let controller = AVPlayerViewController()
+        controller.player = player
+        
+        viewController?.present(controller, animated: true) {
+            player.play()
+        }
     }
     
 }

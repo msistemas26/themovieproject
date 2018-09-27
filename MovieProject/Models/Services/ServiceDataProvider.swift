@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import RealmSwift
 
 protocol MovieDataProviderProtocol
 {
@@ -41,9 +42,15 @@ class ServiceDataProvider
     
     func fetchMovies(text: String, completionHandler completion: @escaping ([Movie]) -> Void)
     {
-        movieDataProvide.fetchMovies(text: text) { result in
-            completion(result)
+        let realm = try! Realm()
+        var movies: [Movie] = []
+        
+        let realmMovies = realm.objects(RealmMovie.self).filter("title CONTAINS[c] %@", text)
+        for realmMovie in realmMovies {
+            movies.append(Movie(id: realmMovie.id, title: realmMovie.title, overview: realmMovie.overview, poster_path: realmMovie.poster_path, release_date: realmMovie.release_date, popularity: realmMovie.popularity, vote_average: realmMovie.vote_average, video: realmMovie.video))
         }
+        
+        completion(movies)
     }
     
     func fetchCategories(completionHandler completion: @escaping ([Category]) -> Void) {

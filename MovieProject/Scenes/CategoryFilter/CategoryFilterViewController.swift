@@ -110,6 +110,11 @@ extension CategoryFilterViewController: UITableViewDelegate, UITableViewDataSour
         cell?.setup(withViewModel: displayedCategory)
         return cell!
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let displayedCategory = displayedCategories[indexPath.row]
+        router?.routeBack(withCategory: displayedCategory)
+    }
 }
 
 

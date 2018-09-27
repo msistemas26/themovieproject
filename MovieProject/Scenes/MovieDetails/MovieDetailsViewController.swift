@@ -74,6 +74,13 @@ class MovieDetailsViewController: UIViewController
          router?.routeBack()
     }
     
+    @IBAction func didTapPlay(_ sender: UIButton) {
+        guard let url = URL(string: "https://video.feoh4-2.fna.fbcdn.net/v/t42.9040-2/42499987_304685890325270_8973540489395437568_n.mp4?_nc_cat=1&efg=eyJ2ZW5jb2RlX3RhZyI6InN2ZV9zZCJ9&oh=4a9afbf80e56ea52e65d304decd50a5c&oe=5BAD1ECD") else {
+            return
+        }
+        router?.routeToPlayMovie(withUrl: url)
+    }
+    
     func setBackGroundImage(viewModel: MovieDetails.GetMovie.ViewModel.DisplayedMovie) {
         self.view.setBackgroundImage(fromUrl: viewModel.poster_path)
     }
@@ -93,7 +100,7 @@ extension  MovieDetailsViewController: MovieDetailsDisplayLogic
 
 // MARK: - UUtableView Delegates implementation
 
-extension MovieDetailsViewController
+extension MovieDetailsViewController: UITableViewDelegate, UITableViewDataSource
 {
     
     enum MovieSection: Int  {
@@ -114,7 +121,7 @@ extension MovieDetailsViewController
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        guard let displayedMovie = self.displayedMovie, let op = MovieSection(rawValue: indexPath.row) else{
+        guard let _ = self.displayedMovie, let op = MovieSection(rawValue: indexPath.row) else{
             return 0.0
         }
         
@@ -147,12 +154,7 @@ extension MovieDetailsViewController
             return movieDescriptionCell(displayedMovie: displayedMovie)
         }
     }
-}
 
-// MARK: - UItableView Cell implementation
-
-extension MovieDetailsViewController: UITableViewDelegate, UITableViewDataSource {
-    
     struct Constant
     {
         static let moviePosterCellReuseIdentifier = "moviePosterCell"
@@ -164,12 +166,7 @@ extension MovieDetailsViewController: UITableViewDelegate, UITableViewDataSource
     func moviePosterCell(displayedMovie: MovieDetails.GetMovie.ViewModel.DisplayedMovie) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: Constant.moviePosterCellReuseIdentifier) as? MoviePosterTableViewCell
             else { return UITableViewCell() }
-        /*tableView.beginUpdates()
-        // Make the frame the right size to show the thumbnail
-        let cellFrame = CGRect(x: 0, y: 0, width: tableView.contentSize.width, height: 5000)
-        cell.frame = cellFrame
-        tableView.endUpdates()
- */
+  
         cell.setup(withViewModel: displayedMovie)
         return cell
     }
@@ -180,7 +177,6 @@ extension MovieDetailsViewController: UITableViewDelegate, UITableViewDataSource
         cell.setup(withViewModel: displayedMovie)
         return cell
     }
-    
     
     func playMovieCell(displayedMovie: MovieDetails.GetMovie.ViewModel.DisplayedMovie) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: Constant.playMovieCellReuseIdentifier) as? PlayMovieTableViewCell

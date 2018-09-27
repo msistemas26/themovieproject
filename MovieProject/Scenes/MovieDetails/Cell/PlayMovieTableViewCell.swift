@@ -22,8 +22,14 @@ class PlayMovieTableViewCell: UITableViewCell {
     }
     
     private func showData(viewModel: MovieDetails.GetMovie.ViewModel.DisplayedMovie) {
-        if viewModel.video {
+        if CheckInternet.Connection() {
+            playButton.isEnabled = true
+            playButton.backgroundColor = .red
+            self.isUserInteractionEnabled = true
+        } else {
             playButton.isEnabled = false
+            playButton.backgroundColor = .gray
+            self.isUserInteractionEnabled = false
         }
     }
 }

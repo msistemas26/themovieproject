@@ -10,10 +10,11 @@ import UIKit
 
 protocol ListMoviesDisplayLogic: class
 {
+    var category: Category? {get set}
     func displayFetchedMovies(viewModel: ListMovies.FetchMovies.ViewModel)
 }
 
-class ListMoviesViewController: UICollectionViewController
+class ListMoviesViewController: UICollectionViewController, ListMoviesDisplayLogic
 {
     
     var interactor: ListMoviesBusinessLogic?
@@ -21,6 +22,8 @@ class ListMoviesViewController: UICollectionViewController
     var displayedMovies: [ListMovies.FetchMovies.ViewModel.DisplayedMovie] = []
     
     let searchController = UISearchController(searchResultsController: nil)
+    
+    fileprivate let sectionInsets = UIEdgeInsets(top: 0.0, left: 0.5, bottom: 0.0, right: 0.0)
     
     var category: Category?
     
@@ -69,6 +72,10 @@ class ListMoviesViewController: UICollectionViewController
 
         // Do any additional setup after loading the view.
         setUpSearchBar()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         fetchMovies()
     }
 
@@ -92,18 +99,20 @@ class ListMoviesViewController: UICollectionViewController
     {
         if let scene = segue.identifier {
             let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
-            print(selector)
             if let router = router, router.responds(to: selector) {
                 router.perform(selector, with: segue)
             }
         }
+    }
+    @IBAction func didTapCategoryButton(_ sender: UIButton) {
+        performSegue(withIdentifier: "CategoryFilter", sender: sender)
     }
     
 }
 
  // MARK: - ListMoviesDisplayLogic protocol implementation
 
-extension ListMoviesViewController: ListMoviesDisplayLogic
+extension ListMoviesViewController
 {
     func displayFetchedMovies(viewModel: ListMovies.FetchMovies.ViewModel)
     {

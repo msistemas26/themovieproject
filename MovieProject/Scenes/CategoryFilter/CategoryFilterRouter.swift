@@ -11,13 +11,13 @@ import UIKit
 protocol ListCategoriesRoutingLogic
 {
     func routeBack()
+    func routeBack(withCategory category:ListCategories.FetchCategories.ViewModel.DisplayedCategory)
 }
 
 protocol ListCategoriesDataPassing
 {
     var dataStore: ListCategoriesDataStore? { get }
 }
-
 
 class ListCategoriesRouter: NSObject, ListCategoriesRoutingLogic, ListCategoriesDataPassing
 {
@@ -28,6 +28,14 @@ class ListCategoriesRouter: NSObject, ListCategoriesRoutingLogic, ListCategories
     // MARK: Routing
  
     func routeBack() {
+        viewController?.dismiss(animated: true, completion: nil)
+    }
+    
+    func routeBack(withCategory category:ListCategories.FetchCategories.ViewModel.DisplayedCategory)
+    {
+        if let presenter = viewController?.presentingViewController as? ListMoviesViewController {
+            presenter.category = Category(id: category.id, name: category.name)
+        }
         viewController?.dismiss(animated: true, completion: nil)
     }
 }

@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 enum ListMovies
 {
     // MARK: Use cases
