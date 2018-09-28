@@ -8,9 +8,9 @@ https://github.com/Carthage/Carthage
 carthage bootstrap --platform iOS --no-use-binaries
 
 
-# Aplicación Movie Usando Clean-swift 
+# Clean-swift Arquitecture
 
-Esta es un ejemplo de como usar Clean Swift 
+La aplicación sigue la arquitectura clean.
 
 http://clean-swift.com/clean-swift-ios-architecture
 
