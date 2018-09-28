@@ -16,7 +16,7 @@ final class FadeUpToBottomTransitionAnimation: NSObject {
     struct Constants {
         struct Animation {
             static let duration: TimeInterval = 0.8
-            static let presentingYPositionFactor: CGFloat = 1.0 / 4.0
+            static let presentingYPositionFactor: CGFloat = 1
         }
     }
     
