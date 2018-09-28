@@ -6,7 +6,7 @@ http://clean-swift.com/clean-swift-ios-architecture
 
 # Descripción
 
-La aplicación se conecta al siguiente servicio:  https://api.themoviedb.org/3 trae un listado de peliculas, las cuales se visualizan en la aplicación.
+La aplicación se conecta al siguiente servicio:  https://api.themoviedb.org/3 trae un listado de peliculas, las cuales se visualizan en la pagina principal.
 
 La aplicacion permite consultar y visualizar datos offline usando realm como adminitrador de base de datos.
 
@@ -51,7 +51,7 @@ protocol ListCategoriesDataStore
 
 ## Animaciones
 
-Para mostrar el listado de catefgorias se implemento una animación que muestra el viewcontroller de categorias usando fade desde arriba hacia abajo, de igual forma hace dismiss con la misma animación.
+Para mostrar el listado de categorias se implemento una animación que muestra el viewcontroller de categorias usando fade desde arriba hacia abajo, de igual forma hace dismiss con la misma animación.
 
 
 ```swift
@@ -64,7 +64,7 @@ class FadeUpToBottomTransitionAnimation: UIViewControllerAnimatedTransitioning {
 
 ## Offline
 
-Para mostrar el listado de catefgorias offline se implemento Realm como framework que permite de forma simple crear base de datos, consultar y guardar registros en ella.
+Para mostrar el listado de peliculas offline se implemento Realm como framework que permite de forma simple crear base de datos, consultar y guardar registros en ella.
 
 
 ```swift
