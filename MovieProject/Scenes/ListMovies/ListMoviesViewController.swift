@@ -21,10 +21,7 @@ class ListMoviesViewController: UIViewController, ListMoviesDisplayLogic
     
     let searchController = UISearchController(searchResultsController: nil)
     
-    fileprivate let sectionInsets = UIEdgeInsets(top: 0.0, left: 0.5, bottom: 0.0, right: 0.0)
-    
     @IBOutlet weak var collectionView: UICollectionView!
-    
     
     // MARK: Object lifecycle
     
@@ -38,6 +35,19 @@ class ListMoviesViewController: UIViewController, ListMoviesDisplayLogic
     {
         super.init(coder: aDecoder)
         setup()
+    }
+    
+    override func viewDidLoad()
+    {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view.
+        setUpColletionViewColumns()
+        setUpSearchBar()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        fetchMovies()
     }
 
     // MARK: Setup
@@ -70,19 +80,6 @@ class ListMoviesViewController: UIViewController, ListMoviesDisplayLogic
         let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         layout.itemSize = CGSize(width: width, height: height)
     }
-    
-    override func viewDidLoad()
-    {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        setUpColletionViewColumns()
-        setUpSearchBar()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        fetchMovies()
-    }
 
     // MARK: - Fetch movies
     
@@ -109,6 +106,7 @@ class ListMoviesViewController: UIViewController, ListMoviesDisplayLogic
             }
         }
     }
+    
     @IBAction func didTapCategoryButton(_ sender: UIButton) {
         router?.routeToCategories()
     }
@@ -133,7 +131,6 @@ extension ListMoviesViewController: UICollectionViewDelegate, UICollectionViewDa
     struct Constant
     {
         static let collectionItemReuseIdentifier = "MovieCollectionViewItem"
-        static let collectionHeaderReuseIdentifier = "MovieCollectionViewHeader"
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -150,18 +147,7 @@ extension ListMoviesViewController: UICollectionViewDelegate, UICollectionViewDa
         cell.setup(withViewModel: displayedMovie)
         return cell
     }
-    
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        switch kind {
-        case UICollectionElementKindSectionHeader:
-            let reusableview = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: Constant.collectionHeaderReuseIdentifier, for: indexPath) as! MovieCollectionViewHeader
-            return reusableview
-        default:  fatalError("Unexpected element kind")
-        }
-    }
 }
-
-
 
 // MARK: - Search Bar methods and UISearchResultsUpdating Delegate
 
