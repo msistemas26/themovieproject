@@ -93,4 +93,4 @@ func saveMovieIntoRealm(movies :[Movie], category: Category) {
 
 ## Aplicación
 
-![alt text](,/example/movie.gif "Ejemplos")
+![alt text](./example/movie.gif "Ejemplos")
