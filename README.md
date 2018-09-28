@@ -1,5 +1,5 @@
 
-## Modulos equeridos
+## Modulos Requeridos !!
 Se deben installar los modulos de Alamofire y Realm Usando carthage:
 
 https://github.com/Carthage/Carthage
