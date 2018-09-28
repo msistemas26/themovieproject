@@ -26,6 +26,15 @@ Features que contiene:
 * Buscar peliculas por titulos.
 * Filtrar pelicula por categoria (No implementado)
 
+## Carthage requerido
+Se deben installar los modulos de Alamofire y Realm Usando carthage:
+
+https://github.com/Carthage/Carthage
+
+carthage bootstrap --platform iOS --no-use-binaries
+
+
+
 ## Programación Basada en protocolos
 
 La aplicación se encuentra escrita siguiendo la programación basada en protocolos, es por eso que encontraremos dentro de cada clase un protocolo que define su implentación.
