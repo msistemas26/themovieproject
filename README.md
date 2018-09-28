@@ -60,7 +60,7 @@ class FadeUpToBottomTransitionAnimation: UIViewControllerAnimatedTransitioning {
 }
 ```
 
-![alt text](https://github.com/msistemas26/themovieproject/example/animation.gif "Animation")
+![alt text](./example/animation.gif "Animation")
 
 ## Offline
 
@@ -93,4 +93,4 @@ func saveMovieIntoRealm(movies :[Movie], category: Category) {
 
 ## Aplicación
 
-![alt text](https://github.com/msistemas26/themovieproject/example/movie.gif "Ejemplos")
+![alt text](,/example/movie.gif "Ejemplos")
