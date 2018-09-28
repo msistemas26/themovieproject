@@ -49,6 +49,19 @@ protocol ListCategoriesDataStore
 }
 ```
 
+## Animaciones
+
+Para mostrar el listado de catefgorias se implemento una animación que muestra el viewcontroller de categorias usando fade desde arriba hacia abajo, de igual forma hace dismiss con la misma animación.
+
+
+```swift
+class FadeUpToBottomTransitionAnimation: UIViewControllerAnimatedTransitioning {
+
+}
+```
+
+![alt text](https://github.com/msistemas26/themovieproject/example/animation.gif "Animation")
+
 ## Offline
 
 Para mostrar el listado de catefgorias offline se implemento Realm como framework que permite de forma simple crear base de datos, consultar y guardar registros en ella.
@@ -78,16 +91,6 @@ func saveMovieIntoRealm(movies :[Movie], category: Category) {
 ```
 
 
-## Animaciones
+## Aplicación
 
-Para mostrar el listado de catefgorias se implemento una animación que muestra el viewcontroller de categorias usando fade desde arriba hacia abajo, de igual forma hace dismiss con la misma animación.
-
-
-```swift
-class FadeUpToBottomTransitionAnimation: UIViewControllerAnimatedTransitioning {
-
-}
-```
-
-## Screenshots
-![alt text](http://helm.cat/assets/github-images/usecase-snippet.gif "Ejemplos")
+![alt text](https://github.com/msistemas26/themovieproject/example/movie.gif "Ejemplos")
