@@ -1,3 +1,13 @@
+
+## Modulos Requeridos !!
+Se deben installar los modulos de Alamofire y Realm Usando carthage:
+
+https://github.com/Carthage/Carthage
+
+## Run Carthage
+carthage bootstrap --platform iOS --no-use-binaries
+
+
 # Aplicación Movie Usando Clean-swift 
 
 Esta es un ejemplo de como usar Clean Swift 
@@ -25,6 +35,7 @@ Features que contiene:
 * Ver una pelicula.
 * Buscar peliculas por titulos.
 * Filtrar pelicula por categoria (No implementado)
+* Unit Testing (No implementado)
 
 ## Programación Basada en protocolos
 
