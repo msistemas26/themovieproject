@@ -27,6 +27,7 @@ enum ListCategories
             {
                 let id: Int
                 let name :String
+                let path :String
             }
             var displayedCategories: [DisplayedCategory]
         }

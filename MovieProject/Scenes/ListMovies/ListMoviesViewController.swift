@@ -10,13 +10,11 @@ import UIKit
 
 protocol ListMoviesDisplayLogic: class
 {
-    var category: Category? {get set}
     func displayFetchedMovies(viewModel: ListMovies.FetchMovies.ViewModel)
 }
 
-class ListMoviesViewController: UICollectionViewController, ListMoviesDisplayLogic
+class ListMoviesViewController: UIViewController, ListMoviesDisplayLogic
 {
-    
     var interactor: ListMoviesBusinessLogic?
     var router: (NSObjectProtocol & ListMoviesRoutingLogic & ListMoviesDataPassing)?
     var displayedMovies: [ListMovies.FetchMovies.ViewModel.DisplayedMovie] = []
@@ -25,7 +23,8 @@ class ListMoviesViewController: UICollectionViewController, ListMoviesDisplayLog
     
     fileprivate let sectionInsets = UIEdgeInsets(top: 0.0, left: 0.5, bottom: 0.0, right: 0.0)
     
-    var category: Category?
+    @IBOutlet weak var collectionView: UICollectionView!
+    
     
     // MARK: Object lifecycle
     
@@ -55,7 +54,6 @@ class ListMoviesViewController: UICollectionViewController, ListMoviesDisplayLog
         presenter.viewController = viewController
         router.viewController = viewController
         router.dataStore = interactor
-        category = nil
     }
     
     private func setUpSearchBar(){
@@ -66,11 +64,18 @@ class ListMoviesViewController: UICollectionViewController, ListMoviesDisplayLog
         definesPresentationContext = true
     }
     
+    private func setUpColletionViewColumns(){
+        let width = (view.frame.width - 40) / 3
+        let height = width *  1.5
+        let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
+        layout.itemSize = CGSize(width: width, height: height)
+    }
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+        setUpColletionViewColumns()
         setUpSearchBar()
     }
     
@@ -84,7 +89,7 @@ class ListMoviesViewController: UICollectionViewController, ListMoviesDisplayLog
     func fetchMovies()
     {
         let request = ListMovies.FetchMovies.Request()
-        interactor?.fetchMovies(category: .popular, request: request)
+        interactor?.fetchMovies(request: request)
     }
     
     func fetchMovies(text: String)
@@ -105,7 +110,7 @@ class ListMoviesViewController: UICollectionViewController, ListMoviesDisplayLog
         }
     }
     @IBAction func didTapCategoryButton(_ sender: UIButton) {
-        performSegue(withIdentifier: "CategoryFilter", sender: sender)
+        router?.routeToCategories()
     }
     
 }
@@ -123,7 +128,7 @@ extension ListMoviesViewController
 
 // MARK: - UICollectionViewController Delegates implementation
 
-extension ListMoviesViewController
+extension ListMoviesViewController: UICollectionViewDelegate, UICollectionViewDataSource
 {
     struct Constant
     {
@@ -131,22 +136,22 @@ extension ListMoviesViewController
         static let collectionHeaderReuseIdentifier = "MovieCollectionViewHeader"
     }
     
-    override func numberOfSections(in collectionView: UICollectionView) -> Int {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return displayedMovies.count
     }
     
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let displayedMovie = displayedMovies[indexPath.row]
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constant.collectionItemReuseIdentifier, for: indexPath) as! MovieCollectionViewCell
         cell.setup(withViewModel: displayedMovie)
         return cell
     }
     
-    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         switch kind {
         case UICollectionElementKindSectionHeader:
             let reusableview = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: Constant.collectionHeaderReuseIdentifier, for: indexPath) as! MovieCollectionViewHeader

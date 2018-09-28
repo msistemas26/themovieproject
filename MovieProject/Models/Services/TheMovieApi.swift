@@ -41,15 +41,13 @@ final class TheMovieApi: MovieDataProviderProtocol
         //demo
     }
     
-    func fetchMovies(category: MovieCategory, completionHandler completion: @escaping ([Movie]) -> Void)
+    func fetchMovies(category: Category, completionHandler completion: @escaping ([Movie]) -> Void)
     {
-        let urlString = Contants.home_path + category.rawValue + "?api_key=" + Contants.api_Key
+        let urlString = Contants.home_path + category.path + "?api_key=" + Contants.api_Key
         
         Alamofire
             .request(urlString)
             .responseJSON { response in
-                print(response)
-                
                 guard let result = response.data else {
                     completion([])
                     return
@@ -69,7 +67,7 @@ final class TheMovieApi: MovieDataProviderProtocol
        // TO DO
     }
     
-    func saveMovieIntoRealm(movies :[Movie], category: MovieCategory) {
+    func saveMovieIntoRealm(movies :[Movie], category: Category) {
         
         let realm = try! Realm()
         print(Realm.Configuration.defaultConfiguration.fileURL!)
@@ -84,7 +82,7 @@ final class TheMovieApi: MovieDataProviderProtocol
                 realmMovie.popularity = movie.popularity
                 realmMovie.vote_average = 0.0
                 realmMovie.video = movie.video
-                realmMovie.category = category.rawValue
+                realmMovie.category = category.path
                 realm.add(realmMovie, update: true)
             }
         }

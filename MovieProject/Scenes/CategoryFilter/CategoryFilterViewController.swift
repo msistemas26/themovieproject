@@ -129,5 +129,4 @@ extension CategoryFilterViewController: UIViewControllerTransitioningDelegate {
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return FadeUpToBottomTransitionAnimation(isPresenting: false)
     }
-    
 }

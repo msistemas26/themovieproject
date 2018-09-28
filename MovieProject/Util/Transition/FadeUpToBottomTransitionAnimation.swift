@@ -15,7 +15,7 @@ final class FadeUpToBottomTransitionAnimation: NSObject {
     
     struct Constants {
         struct Animation {
-            static let duration: TimeInterval = 0.5
+            static let duration: TimeInterval = 0.8
             static let presentingYPositionFactor: CGFloat = 1.0 / 4.0
         }
     }
@@ -71,10 +71,10 @@ extension FadeUpToBottomTransitionAnimation: UIViewControllerAnimatedTransitioni
         let containerView = transitionContext.containerView
         fromView.endEditing(true)
         
-        //containerView.insertSubview(toView, at: 0)
+        containerView.insertSubview(toView, at: 0)
         
         fromView.frame = CGRect(x: 0, y: UIApplication.shared.statusBarFrame.height, width: fromView.frame.width, height: fromView.frame.height)
-        
+        fromView.alpha = 1.0
         UIView.animate(withDuration: Constants.Animation.duration, animations: {
             fromView.alpha = 0.0
             fromView.frame = CGRect(x: 0, y: -(containerView.frame.height * Constants.Animation.presentingYPositionFactor), width: fromView.frame.width, height: fromView.frame.height)

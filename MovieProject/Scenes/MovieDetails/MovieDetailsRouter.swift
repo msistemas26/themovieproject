@@ -41,7 +41,7 @@ class MovieDetailsRouter: NSObject, MovieDetailsRoutingLogic, MovieDetailsDataPa
         controller.player = player
         
         viewController?.present(controller, animated: true) {
-            player.play()
+            controller.player?.play()
         }
     }
     

@@ -11,7 +11,7 @@ import RealmSwift
 
 protocol MovieDataProviderProtocol
 {
-    func fetchMovies(category: MovieCategory, completionHandler completion: @escaping ([Movie]) -> Void)
+    func fetchMovies(category: Category, completionHandler completion: @escaping ([Movie]) -> Void)
     func fetchMovies(text: String, completionHandler completion: @escaping ([Movie]) -> Void)
 }
 
@@ -33,9 +33,9 @@ class ServiceDataProvider
         self.movieDataProvide = CheckInternet.Connection() ? TheMovieApi() : RealmProvider()
     }
     
-    func fetchMovies(category: MovieCategory, completionHandler completion: @escaping ([Movie]) -> Void)
+    func fetchMovies(category: Category?, completionHandler completion: @escaping ([Movie]) -> Void)
     {
-        movieDataProvide.fetchMovies(category: category) { result in
+        movieDataProvide.fetchMovies(category: category ?? defaulCategory()) { result in
             completion(result)
         }
     }
@@ -55,10 +55,13 @@ class ServiceDataProvider
     
     func fetchCategories(completionHandler completion: @escaping ([Category]) -> Void) {
         var categories:[Category] = []
-        categories.append(Category(id: 1, name: "Popular"))
-        categories.append(Category(id: 2, name: "Top Rated"))
-        categories.append(Category(id: 3, name: "Upcoming"))
+        categories.append(Category(id: 1, name: "Popular", path: "/movie/popular"))
+        categories.append(Category(id: 2, name: "Top Rated", path: "/movie/top_rated"))
+        categories.append(Category(id: 3, name: "Upcoming", path: "/movie/upcoming"))
         completion(categories)
     }
-
+    
+    func defaulCategory()-> Category {
+        return (Category(id: 1, name: "Popular", path: "/movie/popular"))
+    }
 }

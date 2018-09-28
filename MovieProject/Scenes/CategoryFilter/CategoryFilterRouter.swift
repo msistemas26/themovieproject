@@ -33,9 +33,21 @@ class ListCategoriesRouter: NSObject, ListCategoriesRoutingLogic, ListCategories
     
     func routeBack(withCategory category:ListCategories.FetchCategories.ViewModel.DisplayedCategory)
     {
-        if let presenter = viewController?.presentingViewController as? ListMoviesViewController {
-            presenter.category = Category(id: category.id, name: category.name)
+        guard let controller = self.viewController else {
+            return
         }
-        viewController?.dismiss(animated: true, completion: nil)
+        
+        controller.dismiss(animated: true, completion: nil)
+    }
+    
+    func passDataToParent(category: ListCategories.FetchCategories.ViewModel.DisplayedCategory, destination: inout ListMoviesDataStore)
+    {
+        // Pass data backward
+    }
+    
+    func navigateToParent(source: CategoryFilterViewController, destination: ListMoviesViewController)
+    {
+        // Navigate backward (dismissing)
+        source.dismiss(animated: true, completion: nil)
     }
 }

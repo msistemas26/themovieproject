@@ -75,7 +75,7 @@ class MovieDetailsViewController: UIViewController
     }
     
     @IBAction func didTapPlay(_ sender: UIButton) {
-        guard let url = URL(string: "https://video.feoh4-2.fna.fbcdn.net/v/t42.9040-2/42499987_304685890325270_8973540489395437568_n.mp4?_nc_cat=1&efg=eyJ2ZW5jb2RlX3RhZyI6InN2ZV9zZCJ9&oh=4a9afbf80e56ea52e65d304decd50a5c&oe=5BAD1ECD") else {
+        guard let url = URL(string: "http://clips.vorwaerts-gmbh.de/VfE_html5.mp4") else {
             return
         }
         router?.routeToPlayMovie(withUrl: url)

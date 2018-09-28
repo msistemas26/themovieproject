@@ -10,7 +10,7 @@
 		FEB00D58215BDA890005E527 /* RealmProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB00D57215BDA890005E527 /* RealmProvider.swift */; };
 		FEB00D5B215BDE9F0005E527 /* RealmMovie.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB00D5A215BDE9F0005E527 /* RealmMovie.swift */; };
 		FEB00D6A215BED1B0005E527 /* CheckInternet.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB00D69215BED1B0005E527 /* CheckInternet.swift */; };
-		FEB00D87215D29070005E527 /* AVPlayerViewController + LandscapeOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB00D86215D29070005E527 /* AVPlayerViewController + LandscapeOrientation.swift */; };
+		FEB00D96215E87E90005E527 /* AVPlayerViewController + LandscapeOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB00D95215E87E80005E527 /* AVPlayerViewController + LandscapeOrientation.swift */; };
 		FED602962158274200FD24D5 /* MovieDetailsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED602952158274200FD24D5 /* MovieDetailsRouter.swift */; };
 		FED60298215827D600FD24D5 /* MovieDetailsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED60297215827D600FD24D5 /* MovieDetailsInteractor.swift */; };
 		FED6029A215828B500FD24D5 /* MovieDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED60299215828B500FD24D5 /* MovieDetailsModel.swift */; };
@@ -32,7 +32,6 @@
 		FEE328112157EB4C00CB0D38 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE328102157EB4C00CB0D38 /* AppDelegate.swift */; };
 		FEE328132157EB4C00CB0D38 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE328122157EB4C00CB0D38 /* ViewController.swift */; };
 		FEE328162157EB4C00CB0D38 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEE328142157EB4C00CB0D38 /* Main.storyboard */; };
-		FEE328182157EB4F00CB0D38 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FEE328172157EB4F00CB0D38 /* Assets.xcassets */; };
 		FEE3281B2157EB4F00CB0D38 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEE328192157EB4F00CB0D38 /* LaunchScreen.storyboard */; };
 		FEE328262157EB4F00CB0D38 /* MovieProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE328252157EB4F00CB0D38 /* MovieProjectTests.swift */; };
 		FEE328312157EB5000CB0D38 /* MovieProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE328302157EB5000CB0D38 /* MovieProjectUITests.swift */; };
@@ -76,7 +75,7 @@
 		FEB00D57215BDA890005E527 /* RealmProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmProvider.swift; sourceTree = "<group>"; };
 		FEB00D5A215BDE9F0005E527 /* RealmMovie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmMovie.swift; sourceTree = "<group>"; };
 		FEB00D69215BED1B0005E527 /* CheckInternet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInternet.swift; sourceTree = "<group>"; };
-		FEB00D86215D29070005E527 /* AVPlayerViewController + LandscapeOrientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AVPlayerViewController + LandscapeOrientation.swift"; sourceTree = "<group>"; };
+		FEB00D95215E87E80005E527 /* AVPlayerViewController + LandscapeOrientation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AVPlayerViewController + LandscapeOrientation.swift"; sourceTree = "<group>"; };
 		FED602952158274200FD24D5 /* MovieDetailsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsRouter.swift; sourceTree = "<group>"; };
 		FED60297215827D600FD24D5 /* MovieDetailsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsInteractor.swift; sourceTree = "<group>"; };
 		FED60299215828B500FD24D5 /* MovieDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsModel.swift; sourceTree = "<group>"; };
@@ -99,7 +98,6 @@
 		FEE328102157EB4C00CB0D38 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FEE328122157EB4C00CB0D38 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FEE328152157EB4C00CB0D38 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		FEE328172157EB4F00CB0D38 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FEE3281A2157EB4F00CB0D38 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FEE3281C2157EB4F00CB0D38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FEE328212157EB4F00CB0D38 /* MovieProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovieProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -235,7 +233,6 @@
 				FEE328102157EB4C00CB0D38 /* AppDelegate.swift */,
 				FEE328122157EB4C00CB0D38 /* ViewController.swift */,
 				FEE328142157EB4C00CB0D38 /* Main.storyboard */,
-				FEE328172157EB4F00CB0D38 /* Assets.xcassets */,
 				FEE328192157EB4F00CB0D38 /* LaunchScreen.storyboard */,
 				FEE3281C2157EB4F00CB0D38 /* Info.plist */,
 			);
@@ -376,8 +373,8 @@
 		FEE328762158185300CB0D38 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				FEB00D95215E87E80005E527 /* AVPlayerViewController + LandscapeOrientation.swift */,
 				FED602BE21597CC700FD24D5 /* UIView+Alamofire.swift */,
-				FEB00D86215D29070005E527 /* AVPlayerViewController + LandscapeOrientation.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -488,7 +485,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FEE3281B2157EB4F00CB0D38 /* LaunchScreen.storyboard in Resources */,
-				FEE328182157EB4F00CB0D38 /* Assets.xcassets in Resources */,
 				FEE328162157EB4C00CB0D38 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -558,7 +554,7 @@
 				FEE3287D215823F300CB0D38 /* MovieCollectionViewHeader.swift in Sources */,
 				FEE3286D2157FBB100CB0D38 /* ListMoviesRouter.swift in Sources */,
 				FEE328652157F8B900CB0D38 /* ListMoviesInteractor.swift in Sources */,
-				FEB00D87215D29070005E527 /* AVPlayerViewController + LandscapeOrientation.swift in Sources */,
+				FEB00D96215E87E90005E527 /* AVPlayerViewController + LandscapeOrientation.swift in Sources */,
 				FED602A921582FEC00FD24D5 /* MovieDetailsTableViewHeader.swift in Sources */,
 				FEB00D58215BDA890005E527 /* RealmProvider.swift in Sources */,
 				FED6029C2158291900FD24D5 /* MovieDetailsPresenter.swift in Sources */,

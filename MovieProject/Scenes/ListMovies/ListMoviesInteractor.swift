@@ -10,27 +10,30 @@ import Foundation
 
 protocol ListMoviesBusinessLogic
 {
-    func fetchMovies(category: MovieCategory, request: ListMovies.FetchMovies.Request)
+    func fetchMovies(request: ListMovies.FetchMovies.Request)
     func fetchMovies(text: String, request: ListMovies.FetchMovies.Request)
 }
 
 protocol ListMoviesDataStore
 {
    var movies: [Movie]? { get }
+   var category: Category! { get set }
 }
 
 final class ListMoviesInteractor: ListMoviesBusinessLogic, ListMoviesDataStore
 {
+
     var presenter: ListMoviesPresentationLogic?
     var moviesDataProvider: ServiceDataProvider
     
     var movies: [Movie]?
+    var category: Category!
     
     init() {
         self.moviesDataProvider = ServiceDataProvider()
     }
     
-    func fetchMovies(category: MovieCategory, request: ListMovies.FetchMovies.Request)
+    func fetchMovies(request: ListMovies.FetchMovies.Request)
     {
         moviesDataProvider.fetchMovies(category: category) { (movies) in
             self.movies = movies

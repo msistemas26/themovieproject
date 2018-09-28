@@ -23,7 +23,7 @@ class ListCategoriesPresenter: ListCategoriesPresentationLogic
         var displayedCategories: [ListCategories.FetchCategories.ViewModel.DisplayedCategory] = []
         for category in response.categories
         {
-            let displayedCategory = ListCategories.FetchCategories.ViewModel.DisplayedCategory(id: category.id, name: category.name)
+            let displayedCategory = ListCategories.FetchCategories.ViewModel.DisplayedCategory(id: category.id, name: category.name, path: category.path)
             displayedCategories.append(displayedCategory)
         }
         let viewModel = ListCategories.FetchCategories.ViewModel(displayedCategories: displayedCategories)
