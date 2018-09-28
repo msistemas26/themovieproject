@@ -35,6 +35,7 @@ Features que contiene:
 * Ver una pelicula.
 * Buscar peliculas por titulos.
 * Filtrar pelicula por categoria (No implementado)
+* Unit Testing (No implementado)
 
 ## Programación Basada en protocolos
 
