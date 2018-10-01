@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FE60425F21627E47009D9E09 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE60425E21627E47009D9E09 /* Assets.xcassets */; };
 		FEB00D58215BDA890005E527 /* RealmProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB00D57215BDA890005E527 /* RealmProvider.swift */; };
 		FEB00D5B215BDE9F0005E527 /* RealmMovie.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB00D5A215BDE9F0005E527 /* RealmMovie.swift */; };
 		FEB00D6A215BED1B0005E527 /* CheckInternet.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB00D69215BED1B0005E527 /* CheckInternet.swift */; };
@@ -72,6 +73,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FE60425E21627E47009D9E09 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FEB00D57215BDA890005E527 /* RealmProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmProvider.swift; sourceTree = "<group>"; };
 		FEB00D5A215BDE9F0005E527 /* RealmMovie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmMovie.swift; sourceTree = "<group>"; };
 		FEB00D69215BED1B0005E527 /* CheckInternet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInternet.swift; sourceTree = "<group>"; };
@@ -232,6 +234,7 @@
 				FEE3284B2157F0B700CB0D38 /* Scenes */,
 				FEE328102157EB4C00CB0D38 /* AppDelegate.swift */,
 				FEE328122157EB4C00CB0D38 /* ViewController.swift */,
+				FE60425E21627E47009D9E09 /* Assets.xcassets */,
 				FEE328142157EB4C00CB0D38 /* Main.storyboard */,
 				FEE328192157EB4F00CB0D38 /* LaunchScreen.storyboard */,
 				FEE3281C2157EB4F00CB0D38 /* Info.plist */,
@@ -485,6 +488,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FEE3281B2157EB4F00CB0D38 /* LaunchScreen.storyboard in Resources */,
+				FE60425F21627E47009D9E09 /* Assets.xcassets in Resources */,
 				FEE328162157EB4C00CB0D38 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -739,6 +743,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -760,6 +765,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
